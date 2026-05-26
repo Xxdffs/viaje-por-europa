@@ -16,6 +16,21 @@ const priorityLabels = {
   opcional: "Opcional",
 };
 
+function makeGoogleMapsSearchUrl(query) {
+  const q = encodeURIComponent(String(query || "").trim());
+  return `https://www.google.com/maps/search/?api=1&query=${q}`;
+}
+
+function makePlaceMapsUrl(city, place) {
+  const query = `${place?.name || ""}, ${city?.name || ""}, ${city?.country || ""}`.trim();
+  return makeGoogleMapsSearchUrl(query);
+}
+
+function makeCityMapsUrl(city) {
+  const query = `${city?.name || ""}, ${city?.country || ""}`.trim();
+  return makeGoogleMapsSearchUrl(query);
+}
+
 function renderTimeline() {
   timelineEl.innerHTML = timelineStops
     .map(
@@ -114,6 +129,14 @@ function openCityModal(cityId) {
       <div><strong>Llegada</strong><span>${city.arrival}</span></div>
       <div><strong>Salida</strong><span>${city.departure}</span></div>
       <div><strong>Transporte</strong><span>${city.transportIn} → ${city.transportOut}</span></div>
+      <div>
+        <strong>Mapa</strong>
+        <span>
+          <a class="maps-link" href="${makeCityMapsUrl(city)}" target="_blank" rel="noopener noreferrer">
+            Abrir ciudad
+          </a>
+        </span>
+      </div>
     </div>
     <p class="modal-summary">${city.summary}</p>
   `;
@@ -141,6 +164,9 @@ function openCityModal(cityId) {
               <p class="place-desc">${place.description}</p>
               <div class="place-meta">
                 <span class="place-duration">⏱ ${place.duration}</span>
+                <a class="maps-link maps-link-inline" href="${makePlaceMapsUrl(city, place)}" target="_blank" rel="noopener noreferrer">
+                  Abrir en Google Maps →
+                </a>
               </div>
               ${
                 place.tip

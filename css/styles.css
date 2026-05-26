@@ -739,6 +739,28 @@ body {
 .place-meta {
   font-size: 0.8rem;
   color: var(--text-muted);
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.maps-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.maps-link:hover {
+  text-decoration: underline;
+}
+
+.maps-link-inline {
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: rgba(30, 77, 107, 0.08);
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
 }
 
 .place-tip {
