@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guía de lugares para visitar en tu viaje por las capitales europeas — junio-julio 2026" />
+  <title>Europa en Ruta · Guía de visitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="logo">
+        <span class="logo-icon" aria-hidden="true">✦</span>
+        Europa en Ruta
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#itinerario">Itinerario</a></li>
+        <li><a href="#ciudades">Ciudades</a></li>
+        <li><a href="#consejos">Consejos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-badge">Junio – Julio 2026</p>
+        <h1>Tu viaje por las capitales de Europa</h1>
+        <p class="hero-lead">
+          Guía práctica con los mejores lugares para visitar en cada parada:
+          desde Barcelona hasta Roma, adaptada a los días que pasarás en cada ciudad.
+        </p>
+        <div class="hero-actions">
+          <a href="#ciudades" class="btn btn-primary">Explorar ciudades</a>
+          <a href="#itinerario" class="btn btn-ghost">Ver itinerario</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>8</strong><span>ciudades</span></div>
+          <div class="stat"><strong>11</strong><span>días de viaje</span></div>
+          <div class="stat"><strong>6</strong><span>países</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="itinerario">
+      <div class="container">
+        <header class="section-header">
+          <h2>Itinerario del viaje</h2>
+          <p>Fechas y medios de transporte según tu planificación</p>
+        </header>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="ciudades">
+      <div class="container">
+        <header class="section-header">
+          <h2>Lugares por ciudad</h2>
+          <p>Selecciona una ciudad para ver qué visitar durante tu estancia</p>
+        </header>
+        <div class="filter-bar" role="toolbar" aria-label="Filtrar ciudades">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+        </div>
+        <div class="city-grid" id="cityGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="consejos">
+      <div class="container">
+        <header class="section-header">
+          <h2>Consejos generales</h2>
+          <p>Recomendaciones para aprovechar cada parada</p>
+        </header>
+        <div class="tips-grid">
+          <article class="tip-card">
+            <span class="tip-icon" aria-hidden="true">🎫</span>
+            <h3>Reserva con anticipación</h3>
+            <p>La Sagrada Familia, el Louvre, Anne Frank y el Coliseo suelen agotarse. Compra entradas online con varios días de margen.</p>
+          </article>
+          <article class="tip-card">
+            <span class="tip-icon" aria-hidden="true">🚆</span>
+            <h3>Transporte entre ciudades</h3>
+            <p>Llega con tiempo a estaciones y aeropuertos. Los trenes Eurostar (París–Londres) y Thalys/ICE requieren check-in previo.</p>
+          </article>
+          <article class="tip-card">
+            <span class="tip-icon" aria-hidden="true">👟</span>
+            <h3>Prioriza según el tiempo</h3>
+            <p>En paradas cortas (Barcelona, Bruselas, Ámsterdam) enfócate en 2–3 imprescindibles. En París, Londres y Roma puedes profundizar más.</p>
+          </article>
+          <article class="tip-card">
+            <span class="tip-icon" aria-hidden="true">📱</span>
+            <h3>Apps útiles</h3>
+            <p>Google Maps offline, Citymapper (Londres), SNCF/Trainline para trenes, y la app oficial de museos para audioguías.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="city-modal" id="cityModal" aria-labelledby="modalTitle">
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+      <div class="modal-header" id="modalHeader"></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Europa en Ruta · Guía personal de viaje · 2026</p>
+      <a href="#top" class="back-top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/data.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
